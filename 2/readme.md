@@ -6,6 +6,10 @@ To install AWS Boto3 library: ```pip install Boto3```
 
 To install python linter: ```sudo pip3 install pylint```
 
+## Configure AWS CLI
+* To configure AWS locally: ```aws configure```
+* Then configure Access key details, deafult region and output format
+
 ## Examples
 
 ```
