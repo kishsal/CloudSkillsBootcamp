@@ -15,3 +15,7 @@
 11. Run ``aws configure``
 12. Then run ``ksalgado-mn2:test ksalgado$ go test -v webserver_test.go ``
 
+
+
+## Delete large files before committing to GIT repo
+git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch Week3/Project3/Testing/terraform-azure-webserver/examples/webserver/.terraform/providers/registry.terraform.io/hashicorp/azurerm/2.46.0/darwin_amd64/terraform-provider-azurerm_v2.46.0_x5'
