@@ -1,5 +1,7 @@
 # Testing Infra as Code
 
+## With AWS
+
 1. Install GO Lang (https://golang.org/doc/install)
 2. Create new folder Testing/terraform-aws-webserver
 3. Copy EC2 files from previous project and place in new folder
