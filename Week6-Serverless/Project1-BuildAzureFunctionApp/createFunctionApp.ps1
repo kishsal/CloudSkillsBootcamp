@@ -1,0 +1,31 @@
+function Create-FunctionApp {
+    param (
+        [parameter(Mandatory)]
+        [string]$RGName,
+
+        [parameter(Mandatory)]
+        [string]$name,
+
+        [parameter(Mandatory)]
+        [string]$storageAccountName
+    )
+
+    az group create 
+
+    az storage account create --name $storageAccountName `
+                              --resource-group $RGName
+
+    $plan = az functionapp plan create -g $RGName `
+                               -n $($name + 'plan') `
+                               --min-instances 1 `
+                               --max-burst 5 `
+                               --sku EP1
+    $plan
+    
+    az functionapp create -g $RGName `
+                          -n $name `
+                          -p $($name + 'plan') `
+                          --runtime powershell `
+                          -s $storageAccountName `
+                          --functions-version 2
+}
