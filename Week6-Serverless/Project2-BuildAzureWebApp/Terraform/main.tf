@@ -2,10 +2,14 @@ provider "azurerm" {
   features {}
 }
 
+resource "azurerm_resource_group" "azurerg" {
+  name     = var.resource_group_name
+  location = var.location
+ }
 resource "azurerm_app_service_plan" "cloudskills-sp" {
   name                = var.app_service_plan_name
   location            = var.location
-  resource_group_name = var.resource_group_name
+  resource_group_name = azurerm_resource_group.azurerg.name
   kind                = "Linux"
   reserved = true
 
